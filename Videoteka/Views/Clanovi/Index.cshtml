@@ -1,0 +1,41 @@
+﻿@model List<Videoteka.Models.Domain.Clan>
+@{
+}
+<h1>Članovi</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Član ID</th>
+            <th>Ime člana</th>
+            <th>Prezime člana</th>
+            <th>Kontakt br.</th>
+            <th>E-mail</th>
+            <th>Grad</th>
+            <th>Poštanski br.</th>
+            <th>Ulica</th>
+            <th>Kućni br.</th>
+            <th>Datum prijave</th>
+            <th>Izdavanje članarine</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var clan in Model)
+        {
+            <tr>
+                <td>@clan.ClanId</td>
+                <td>@clan.ImeClana</td>
+                <td>@clan.PrezimeClana</td>
+                <td>@clan.BrojTelClana</td>
+                <td>@clan.EmailClana</td>
+                <td>@clan.GradClana</td>
+                <td>@clan.PosKod</td>
+                <td>@clan.UlicaClana</td>
+                <td>@clan.KucniBrClana</td>
+                <td>@clan.PrijavljenDatum.ToString("dd.MM.yyyy.")</td>
+                <td>@clan.DatumClanarine.ToString("dd.MM.yyyy.")</td>
+                <td><a href="Clanovi/View/@clan.ClanId">Uredi/Izbriši</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

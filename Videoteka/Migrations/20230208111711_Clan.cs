@@ -33,7 +33,7 @@ namespace Videoteka.Migrations
                     PosKod = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UlicaClana = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KucniBrClana = table.Column<int>(type: "int", nullable: false),
-                    BrojTelClana = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BrojTelClana = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmailClana = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PrijavljenDatum = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DatumClanarine = table.Column<DateTime>(type: "datetime2", nullable: false)

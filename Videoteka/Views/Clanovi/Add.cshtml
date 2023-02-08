@@ -1,0 +1,49 @@
+﻿@model Videoteka.Models.AddClanViewModel
+@{
+}
+<form method="post" action="Add">
+    <h3>Dodaj člana</h3>
+    <div class="mb-3">
+        <label for="" class="form-label">Ime člana</label>
+        <input type="text" class="form-control" asp-for="ImeClana" required oninvalid="this.setCustomValidity('Unesite ime člana.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Prezime člana</label>
+        <input type="text" class="form-control" asp-for="PrezimeClana" required oninvalid="this.setCustomValidity('Unesite prezime člana.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Kontakt broj člana</label>
+        <input type="text" class="form-control" asp-for="BrojTelClana" required oninvalid="this.setCustomValidity('Unesite kontakt broj člana.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">E-mail člana</label>
+        <input type="text" class="form-control" asp-for="EmailClana">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Poštanski broj</label>
+        <input type="text" class="form-control" asp-for="PosKod">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Grad</label>
+        <input type="text" class="form-control" asp-for="GradClana">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Ulica</label>
+        <input type="text" class="form-control" asp-for="UlicaClana">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Kućni broj</label>
+        <input type="number" class="form-control" asp-for="KucniBrClana">
+    </div>
+ 
+    <div class="mb-3">
+        <label for="" class="form-label">Datum prijavljivanja člana</label>
+        <input type="date" class="form-control" asp-for="PrijavljenDatum">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Datum članarine</label>
+        <input type="date" class="form-control" asp-for="DatumClanarine">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Spremi</button>
+</form>

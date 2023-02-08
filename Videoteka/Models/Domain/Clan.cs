@@ -10,8 +10,7 @@
         public string PosKod { get; set; }
         public string UlicaClana { get; set; }
         public int KucniBrClana { get; set; }
-        
-        public string? BrojTelClana { get; set; }
+        public string BrojTelClana { get; set; }
         public string? EmailClana { get; set; }
         public DateTime PrijavljenDatum { get; set; }
         public DateTime DatumClanarine { get; set; }
