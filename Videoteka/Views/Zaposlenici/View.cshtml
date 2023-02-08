@@ -1,0 +1,48 @@
+﻿@model Videoteka.Models.AzurirajZaposlenikaViewModel
+
+@{
+}
+
+<form method="post" action="View">
+    <!--Post metoda se koristi za slanje podataka serveru kako bi se kreiralo ili azuriralo-->
+    <h3>Uredi podatke zaposlenika</h3>
+    <div class="mb-3">
+        <label for="" class="form-label">ID zaposlenika</label>
+        <input type="text" class="form-control" asp-for="ZaposlenikId" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Ime zaposlenika</label>
+        <input type="text" class="form-control" asp-for="ImeZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Prezime zaposlenika</label>
+        <input type="text" class="form-control" asp-for="PrezimeZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Broj Telefona zaposlenika</label>
+        <input type="text" class="form-control" asp-for="BrojTelZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">E-mail zaposlenika</label>
+        <input type="text" class="form-control" asp-for="EmailZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Pozicija zaposlenika</label>
+        <input type="text" class="form-control" asp-for="PozicijaZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Plaća zaposlenika</label>
+        <input type="number" class="form-control" asp-for="PlacaZaposlenika">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Datum zaposlenja</label>
+        <input type="date" class="form-control" asp-for="DatumZaposlenja">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Datum rođenja</label>
+        <input type="date" class="form-control" asp-for="DatumRodenja">
+    </div>
+
+    <button type="submit" class="btn btn-success">Spremi</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete">Izbriši</button>
+</form>

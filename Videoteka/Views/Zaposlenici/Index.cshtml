@@ -1,0 +1,38 @@
+﻿@model List<Videoteka.Models.Domain.Zaposlenik>
+@{
+}
+<h1>Zaposlenici</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Zaposlenik ID</th>
+            <th>Ime zaposlenika</th>
+            <th>Prezime zaposlenika</th>
+            <th>Kontakt broj zaposlenika</th>
+            <th>E-mail zaposlenika</th>
+            <th>Pozicija zaposlenika</th>
+            <th>Placa zaposlenika</th>
+            <th>Datum zaposlenja</th>
+            <th>Datum rođenja</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var zaposlenik in Model)
+        {<!--ispisivanje za svakog zaposlenika-->
+            <tr>
+                <td>@zaposlenik.ZaposlenikId</td>
+                <td>@zaposlenik.ImeZaposlenika</td>
+                <td>@zaposlenik.PrezimeZaposlenika</td>
+                <td>@zaposlenik.BrojTelZaposlenika</td>
+                <td>@zaposlenik.EmailZaposlenika</td>
+                <td>@zaposlenik.PozicijaZaposlenika</td>
+                <td>@zaposlenik.PlacaZaposlenika</td>
+                <td>@zaposlenik.DatumZaposlenja.ToString("dd.MM.yyyy")</td>
+                <td>@zaposlenik.DatumRodenja.ToString("dd.MM.yyyy")</td>
+                <td><a href="Zaposlenici/View/@zaposlenik.ZaposlenikId">Uredi/Izbriši</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
