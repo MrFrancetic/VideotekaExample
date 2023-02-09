@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Add\" />
+    <Folder Include="Models\Update\" />
+  </ItemGroup>
+
 </Project>

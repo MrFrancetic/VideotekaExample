@@ -70,6 +70,23 @@ namespace Videoteka.Migrations
                     b.ToTable("Clanovi");
                 });
 
+            modelBuilder.Entity("Videoteka.Models.Domain.Kategorija", b =>
+                {
+                    b.Property<int>("KategorijaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KategorijaId"));
+
+                    b.Property<string>("NazivKategorije")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("KategorijaId");
+
+                    b.ToTable("Kategorija");
+                });
+
             modelBuilder.Entity("Videoteka.Models.Domain.Proizvod", b =>
                 {
                     b.Property<int>("ProizvodId")
@@ -98,12 +115,6 @@ namespace Videoteka.Migrations
 
                     b.Property<string>("KategorijaProizvoda")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KategorijaProizvoda2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KategorijaProizvoda3")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("KodProizvoda")

@@ -12,8 +12,8 @@ using Videoteka.Data;
 namespace Videoteka.Migrations
 {
     [DbContext(typeof(VideotekaDbContext))]
-    [Migration("20230209100728_Sve")]
-    partial class Sve
+    [Migration("20230209154707_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,6 +73,23 @@ namespace Videoteka.Migrations
                     b.ToTable("Clanovi");
                 });
 
+            modelBuilder.Entity("Videoteka.Models.Domain.Kategorija", b =>
+                {
+                    b.Property<int>("KategorijaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KategorijaId"));
+
+                    b.Property<string>("NazivKategorije")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("KategorijaId");
+
+                    b.ToTable("Kategorija");
+                });
+
             modelBuilder.Entity("Videoteka.Models.Domain.Proizvod", b =>
                 {
                     b.Property<int>("ProizvodId")
@@ -101,12 +118,6 @@ namespace Videoteka.Migrations
 
                     b.Property<string>("KategorijaProizvoda")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KategorijaProizvoda2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KategorijaProizvoda3")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("KodProizvoda")

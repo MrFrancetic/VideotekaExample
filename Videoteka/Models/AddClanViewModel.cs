@@ -11,7 +11,7 @@
         public int KucniBrClana { set; get; }
         public string BrojTelClana { set; get; }
         public string? EmailClana { set; get; }
-        public DateTime PrijavljenDatum { set; get;}
+        public DateTime PrijavljenDatum { set; get; }
         public DateTime DatumClanarine { set; get; }
     }
 }

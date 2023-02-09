@@ -1,7 +1,7 @@
 ﻿namespace Videoteka.Models
 {
     public class AddZaposlenikViewModel
-    { 
+    {
         public string ImeZaposlenika { get; set; }
         public string PrezimeZaposlenika { get; set; }
         public string BrojTelZaposlenika { get; set; }

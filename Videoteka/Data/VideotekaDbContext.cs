@@ -12,6 +12,7 @@ namespace Videoteka.Data
         public DbSet<Zaposlenik> Zaposlenici { get; set; }
         public DbSet<Clan> Clanovi { get; set; }
         public DbSet<Proizvod> Proizvodi { get; set; }
+        public DbSet<Kategorija> Kategorija { get; set;}
 
     }
 }

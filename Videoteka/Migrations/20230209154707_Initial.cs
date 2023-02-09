@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Videoteka.Migrations
 {
     /// <inheritdoc />
-    public partial class Sve : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,6 +34,19 @@ namespace Videoteka.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Kategorija",
+                columns: table => new
+                {
+                    KategorijaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NazivKategorije = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kategorija", x => x.KategorijaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Proizvodi",
                 columns: table => new
                 {
@@ -41,8 +54,6 @@ namespace Videoteka.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImeProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KategorijaProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KategorijaProizvoda2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KategorijaProizvoda3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OpisProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Direktor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Glumci = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -81,6 +92,9 @@ namespace Videoteka.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Clanovi");
+
+            migrationBuilder.DropTable(
+                name: "Kategorija");
 
             migrationBuilder.DropTable(
                 name: "Proizvodi");

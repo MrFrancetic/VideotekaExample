@@ -1,0 +1,41 @@
+﻿@model AzurirajProizvodViewModel
+@{
+}
+<form method="post" action="Add">
+    <h3>Dodaj proizvod</h3>
+    <div class="mb-3">
+        <label for="" class="form-label">Ime proizvoda</label>
+        <input type="text" class="form-control" asp-for="ImeProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Kategorija Proizvoda</label>
+        <input type="text" class="form-control" asp-for="KategorijaProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Opis proizvoda</label>
+        <input type="number" class="form-control" asp-for="OpisProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Direktor</label>
+        <input type="text" class="form-control" asp-for="Direktor" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Glumci</label>
+        <input type="text" class="form-control" asp-for="Glumci" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Kod proizvoda</label>
+        <input type="number" class="form-control" asp-for="KodProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Datum izlaska proizvoda</label>
+        <input type="date" class="form-control" asp-for="DatumIzlaska">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Datum dolaska na stranici</label>
+        <input type="date" class="form-control" asp-for="DatumDolaskaWeb">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Spremi</button>
+</form>

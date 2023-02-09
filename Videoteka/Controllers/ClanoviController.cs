@@ -30,20 +30,20 @@ namespace Videoteka.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult>Add(AddClanViewModel addClanViewModelRequest)
+        public async Task<IActionResult>Add(AddClanViewModel addClanRequest)
         {
             var clan = new Clan()
             {
-                ImeClana = addClanViewModelRequest.ImeClana,
-                PrezimeClana = addClanViewModelRequest.PrezimeClana,
-                BrojTelClana = addClanViewModelRequest.BrojTelClana,
-                EmailClana = addClanViewModelRequest.EmailClana,
-                PosKod = addClanViewModelRequest.PosKod,
-                GradClana = addClanViewModelRequest.GradClana,
-                UlicaClana = addClanViewModelRequest.UlicaClana,
-                KucniBrClana = addClanViewModelRequest.KucniBrClana,
-                PrijavljenDatum = addClanViewModelRequest.PrijavljenDatum,
-                DatumClanarine = addClanViewModelRequest.DatumClanarine
+                ImeClana = addClanRequest.ImeClana,
+                PrezimeClana = addClanRequest.PrezimeClana,
+                BrojTelClana = addClanRequest.BrojTelClana,
+                EmailClana = addClanRequest.EmailClana,
+                PosKod = addClanRequest.PosKod,
+                GradClana = addClanRequest.GradClana,
+                UlicaClana = addClanRequest.UlicaClana,
+                KucniBrClana = addClanRequest.KucniBrClana,
+                PrijavljenDatum = addClanRequest.PrijavljenDatum,
+                DatumClanarine = addClanRequest.DatumClanarine
             };
 
             await clanDbContext.Clanovi.AddAsync(clan);
@@ -77,7 +77,7 @@ namespace Videoteka.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> View(AzurirajClanaViewModel aclan)
-        {
+        {;
             var clan = await clanDbContext.Clanovi.FindAsync(aclan.ClanaId);
 
             if (clan != null)
