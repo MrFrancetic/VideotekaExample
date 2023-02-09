@@ -12,15 +12,15 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Ime zaposlenika</label>
-        <input type="text" class="form-control" asp-for="ImeZaposlenika">
+        <input type="text" class="form-control" asp-for="ImeZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Prezime zaposlenika</label>
-        <input type="text" class="form-control" asp-for="PrezimeZaposlenika">
+        <input type="text" class="form-control" asp-for="PrezimeZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Broj Telefona zaposlenika</label>
-        <input type="text" class="form-control" asp-for="BrojTelZaposlenika">
+        <input type="text" class="form-control" asp-for="BrojTelZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">E-mail zaposlenika</label>

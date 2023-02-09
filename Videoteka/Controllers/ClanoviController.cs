@@ -104,11 +104,11 @@ namespace Videoteka.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(AzurirajClanaViewModel acad)
         {
-            var clan = await clanDbContext.Zaposlenici.FindAsync(acad.ClanaId);
+            var clan = await clanDbContext.Clanovi.FindAsync(acad.ClanaId);
 
             if ( clan != null)
             {
-                clanDbContext.Zaposlenici.Remove(clan);
+                clanDbContext.Clanovi.Remove(clan);
                 await clanDbContext.SaveChangesAsync();
 
                 return RedirectToAction("Index");

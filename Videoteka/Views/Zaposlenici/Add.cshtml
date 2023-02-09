@@ -6,19 +6,19 @@
   <h3>Dodaj zaposlenika</h3>
   <div class="mb-3">
     <label for="" class="form-label">Ime zaposlenika</label>
-    <input type="text" class="form-control" asp-for="ImeZaposlenika" required oninvalid="this.setCustomValidity('Unesite ime zaposlenika.')" onchange="this.setCustomValidity('')"> 
+    <input type="text" class="form-control" asp-for="ImeZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')"> 
   </div>
     <div class="mb-3">
         
         <label for="" class="form-label">Prezime zaposlenika</label>
-        <input type="text" class="form-control" asp-for="PrezimeZaposlenika" required oninvalid="this.setCustomValidity('Unesite prezime zaposlenika.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="PrezimeZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje')" onchange="this.setCustomValidity('')">
     </div>
     <!--U input type se stavio required oninvalid="this.setCustomValidity('Unesite ime/prezime zaposlenika')" kako bi se sprijecilo prazan unos bazu podataka i da
         sprijeci administratora od praznog unosa
     -->
     <div class="mb-3">
         <label for="" class="form-label">Kontakt broj zaposlenika</label>
-        <input type="text" class="form-control" asp-for="BrojTelZaposlenika" required oninvalid="this.setCustomValidity('Unesite kontakt broj zaposlenika.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="BrojTelZaposlenika" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">E-mail zaposlenika</label>

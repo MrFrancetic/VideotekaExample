@@ -31,6 +31,7 @@ namespace Videoteka.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClanId"));
 
                     b.Property<string>("BrojTelClana")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DatumClanarine")
@@ -50,9 +51,8 @@ namespace Videoteka.Migrations
                     b.Property<int>("KucniBrClana")
                         .HasColumnType("int");
 
-                    b.Property<string>("PosKod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PosKod")
+                        .HasColumnType("int");
 
                     b.Property<string>("PrezimeClana")
                         .IsRequired()
@@ -68,6 +68,54 @@ namespace Videoteka.Migrations
                     b.HasKey("ClanId");
 
                     b.ToTable("Clanovi");
+                });
+
+            modelBuilder.Entity("Videoteka.Models.Domain.Proizvod", b =>
+                {
+                    b.Property<int>("ProizvodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProizvodId"));
+
+                    b.Property<DateTime>("DatumDolaskaWeb")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DatumIzlaska")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Direktor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Glumci")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImeProizvoda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KategorijaProizvoda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KategorijaProizvoda2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KategorijaProizvoda3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("KodProizvoda")
+                        .HasColumnType("float");
+
+                    b.Property<string>("OpisProizvoda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProizvodId");
+
+                    b.ToTable("Proizvodi");
                 });
 
             modelBuilder.Entity("Videoteka.Models.Domain.Zaposlenik", b =>

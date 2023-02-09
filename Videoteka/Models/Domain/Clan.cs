@@ -7,7 +7,7 @@
         public string PrezimeClana { get; set; }
         public string GradClana { get; set; }
 
-        public string PosKod { get; set; }
+        public int PosKod { get; set; }
         public string UlicaClana { get; set; }
         public int KucniBrClana { get; set; }
         public string BrojTelClana { get; set; }

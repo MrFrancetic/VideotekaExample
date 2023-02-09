@@ -5,15 +5,15 @@
     <h3>Dodaj člana</h3>
     <div class="mb-3">
         <label for="" class="form-label">Ime člana</label>
-        <input type="text" class="form-control" asp-for="ImeClana" required oninvalid="this.setCustomValidity('Unesite ime člana.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="ImeClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Prezime člana</label>
-        <input type="text" class="form-control" asp-for="PrezimeClana" required oninvalid="this.setCustomValidity('Unesite prezime člana.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="PrezimeClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Kontakt broj člana</label>
-        <input type="text" class="form-control" asp-for="BrojTelClana" required oninvalid="this.setCustomValidity('Unesite kontakt broj člana.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="BrojTelClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">E-mail člana</label>
@@ -21,19 +21,19 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Poštanski broj</label>
-        <input type="text" class="form-control" asp-for="PosKod">
+        <input type="number" class="form-control" asp-for="PosKod" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Grad</label>
-        <input type="text" class="form-control" asp-for="GradClana">
+        <input type="text" class="form-control" asp-for="GradClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Ulica</label>
-        <input type="text" class="form-control" asp-for="UlicaClana">
+        <input type="text" class="form-control" asp-for="UlicaClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Kućni broj</label>
-        <input type="number" class="form-control" asp-for="KucniBrClana">
+        <input type="number" class="form-control" asp-for="KucniBrClana" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
  
     <div class="mb-3">

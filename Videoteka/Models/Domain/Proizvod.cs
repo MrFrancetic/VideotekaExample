@@ -14,7 +14,7 @@
         public string Direktor { get; set; }
         public string Glumci { get; set; }
 
-        public string KodProizvoda { get; set; }
+        public double KodProizvoda { get; set; }
         public DateTime DatumIzlaska { get; set; }
         public DateTime DatumDolaskaWeb { get; set; }
     }
