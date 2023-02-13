@@ -1,4 +1,12 @@
 ﻿@model AddKategorijuViewModel
-  
 @{
 }
+
+<form method="post" action="add">
+    <h3>Dodaj kategoriju</h3>
+    <div class="mb-3">
+        <label for="" class="form-label">Ime kategorije</label>
+        <input type="text" class="form-control" asp-for="NazivKategorije" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')") />
+    </div>
+    <button type="submit" class="btn btn-primary">Spremi</button>
+</form>

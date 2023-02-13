@@ -4,9 +4,9 @@
     {
         public int ProizvodId { get; set; }
         public string ImeProizvoda { get; set; }
-        public string KategorijaProizvoda { get; set; }
-     //   public string? KategorijaProizvoda2 { get; set; }
-       // public string? KategorijaProizvoda3 { get; set; }
+        public int KategorijaId { get; set; }
+        public List<Videoteka.Models.Domain.Kategorija> Kategorije { get; set; }
+        public string NazivKategorije { get; set; }
         public string OpisProizvoda { get; set; }
         public string Direktor { get; set; }
         public string Glumci { get; set; }

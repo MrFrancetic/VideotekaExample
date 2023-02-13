@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Videoteka.Models.Domain.Kategorija>
 @{
-}
+}<h1>Kategorije</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID kategorije</th>
+            <th>Ime <br>kategorije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var kategorija in Model)
+        {
+            <tr>
+                <td>@kategorija.KategorijaId</td>
+                <td>@kategorija.NazivKategorije</td>
+
+                <td><a href="Kategorije/View/@kategorija.KategorijaId">Uredi/Izbriši</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form>
+    <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Kategorije" asp-action="Add">Dodaj kategoriju</button>
+</form>

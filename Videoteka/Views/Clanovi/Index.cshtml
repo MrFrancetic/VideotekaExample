@@ -2,20 +2,21 @@
 @{
 }
 <h1>Članovi</h1>
+
 <table class="table">
     <thead>
         <tr>
-            <th>Član ID</th>
-            <th>Ime člana</th>
-            <th>Prezime člana</th>
-            <th>Kontakt br.</th>
+            <th>ID člana</th>
+            <th>Ime <br>člana</th>
+            <th>Prezime <br>člana</th>
+            <th>Kontakt <br>broj člana</th>
             <th>E-mail</th>
             <th>Grad</th>
-            <th>Poštanski br.</th>
+            <th>Poštanski <br>broj</th>
             <th>Ulica</th>
-            <th>Kućni br.</th>
-            <th>Datum prijave</th>
-            <th>Izdavanje članarine</th>
+            <th>Kućni <br>broj</th>
+            <th>Datum <br>prijave</th>
+            <th>Izdavanje <br> članarine</th>
 
         </tr>
     </thead>
@@ -39,3 +40,6 @@
         }
     </tbody>
 </table>
+<form>
+    <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Clanovi" asp-action="Add">Dodaj člana</button>
+</form>

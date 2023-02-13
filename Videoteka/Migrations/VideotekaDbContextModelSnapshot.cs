@@ -113,9 +113,8 @@ namespace Videoteka.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("KategorijaProizvoda")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("KategorijaId")
+                        .HasColumnType("int");
 
                     b.Property<double>("KodProizvoda")
                         .HasColumnType("float");
@@ -125,6 +124,8 @@ namespace Videoteka.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProizvodId");
+
+                    b.HasIndex("KategorijaId");
 
                     b.ToTable("Proizvodi");
                 });
@@ -167,6 +168,17 @@ namespace Videoteka.Migrations
                     b.HasKey("ZaposlenikId");
 
                     b.ToTable("Zaposlenici");
+                });
+
+            modelBuilder.Entity("Videoteka.Models.Domain.Proizvod", b =>
+                {
+                    b.HasOne("Videoteka.Models.Domain.Kategorija", "Kategorija")
+                        .WithMany()
+                        .HasForeignKey("KategorijaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kategorija");
                 });
 #pragma warning restore 612, 618
         }

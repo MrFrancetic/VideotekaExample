@@ -1,3 +1,17 @@
 ﻿@model AzurirajKategorijuViewModel
 @{
 }
+
+<form method="post" action="View">
+   <h3>Uredi podatke kategorije</h3>
+ <div class="mb-3">
+     <label for="" class="form-label">Id kategorije</label>
+     <input type="text" class="form-control" asp-for="KategorijaId" readonly/>
+ </div>
+ <div class="mb-3">
+     <label for="" class="form-label">Naziv kategorije</label>
+     <input type="text" class="form-control" asp-for="NazivKategorije" />
+ </div>
+ <button type="submit" class="btn btn-success">Spremi</button>
+ <button type="submit" class="btn btn-danger" asp-action="Delete">Izbriši</button>
+</form>

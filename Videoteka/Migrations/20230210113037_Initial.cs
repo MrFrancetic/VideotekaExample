@@ -47,26 +47,6 @@ namespace Videoteka.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Proizvodi",
-                columns: table => new
-                {
-                    ProizvodId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ImeProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KategorijaProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpisProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direktor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Glumci = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KodProizvoda = table.Column<double>(type: "float", nullable: false),
-                    DatumIzlaska = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DatumDolaskaWeb = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Proizvodi", x => x.ProizvodId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Zaposlenici",
                 columns: table => new
                 {
@@ -85,6 +65,37 @@ namespace Videoteka.Migrations
                 {
                     table.PrimaryKey("PK_Zaposlenici", x => x.ZaposlenikId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Proizvodi",
+                columns: table => new
+                {
+                    ProizvodId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImeProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KategorijaId = table.Column<int>(type: "int", nullable: false),
+                    OpisProizvoda = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Direktor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Glumci = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KodProizvoda = table.Column<double>(type: "float", nullable: false),
+                    DatumIzlaska = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DatumDolaskaWeb = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Proizvodi", x => x.ProizvodId);
+                    table.ForeignKey(
+                        name: "FK_Proizvodi_Kategorija_KategorijaId",
+                        column: x => x.KategorijaId,
+                        principalTable: "Kategorija",
+                        principalColumn: "KategorijaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Proizvodi_KategorijaId",
+                table: "Proizvodi",
+                column: "KategorijaId");
         }
 
         /// <inheritdoc />
@@ -94,13 +105,13 @@ namespace Videoteka.Migrations
                 name: "Clanovi");
 
             migrationBuilder.DropTable(
-                name: "Kategorija");
-
-            migrationBuilder.DropTable(
                 name: "Proizvodi");
 
             migrationBuilder.DropTable(
                 name: "Zaposlenici");
+
+            migrationBuilder.DropTable(
+                name: "Kategorija");
         }
     }
 }

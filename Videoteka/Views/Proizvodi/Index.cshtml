@@ -1,5 +1,41 @@
 ﻿@model List<Videoteka.Models.Domain.Proizvod>
 @{
 }
+<h1>Proizvodi</h1>
+<form>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>ID proizvoda</th>
+            <th>Ime <br>proizvoda</th>
+            <th>ID Kategorije</th>
+            <th>Opis <br>proizvoda</th>
+            <th>Direktor</th>
+            <th>Glumci</th>
+            <th>Kod <br>proizvoda</th>
+            <th>Datum <br>izlaska</th>
+            <th>Datum dolaska <br>na stranici</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach(var proizvod in Model)
+            {
+                <tr>
+                    <td>@proizvod.ProizvodId</td>
+                    <td>@proizvod.ImeProizvoda</td>
+                    <td>@proizvod.KategorijaId</td>  
+                    <td>@proizvod.OpisProizvoda</td>
+                    <td>@proizvod.Direktor</td>
+                    <td>@proizvod.Glumci</td>
+                    <td>@proizvod.KodProizvoda</td>
+                    <td>@proizvod.DatumIzlaska.ToString("dd.MM.yyyy.")</td>
+                    <td>@proizvod.DatumDolaskaWeb.ToString("dd.MM.yyyy.")</td>
+                    <td><a href="Proizvodi/View/@proizvod.ProizvodId">Uredi/Izbriši</a></td>
+                </tr>
+            }
+    </tbody>
+    </table>
 
 <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Proizvodi" asp-action="Add">Dodaj Proizvod</button>
+
+</form>

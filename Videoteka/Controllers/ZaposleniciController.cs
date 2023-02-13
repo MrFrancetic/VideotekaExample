@@ -15,6 +15,7 @@ namespace Videoteka.Controllers
         {
             vidDbContext = VidDbContext;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index()//lista koja ce pokazati spremljene zaposlenike, ali isto tako koristi Views.Zaposlenici.Indexcstml
         {
@@ -28,6 +29,7 @@ namespace Videoteka.Controllers
         {
             return View();//view ce se koristiti kako bi se dodao novi zaposlenik
         }
+
         [HttpPost]
         public async Task<IActionResult> Add(AddZaposlenikViewModel addZaposlenikRequest)
         {

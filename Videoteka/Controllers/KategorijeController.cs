@@ -7,10 +7,10 @@ using Videoteka.Models.Domain;
 
 namespace Videoteka.Controllers
 {
-    public class Kat : Controller
+    public class KategorijeController : Controller
     {
         private readonly VideotekaDbContext katDbContext;
-        public Kat(VideotekaDbContext KatDbContext)
+        public KategorijeController(VideotekaDbContext KatDbContext)
         {
             katDbContext = KatDbContext;
         }

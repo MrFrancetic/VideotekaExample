@@ -1,19 +1,32 @@
 ﻿@model AzurirajProizvodViewModel
 @{
 }
-<form method="post" action="Add">
-    <h3>Dodaj proizvod</h3>
+<form method="post" action="View">
+    <h3>Uredi podatke proizvoda</h3>
+    <div class="mb-3">
+        <label for="" class="form-label">ID proizvoda</label>
+        <input type="text" class="form-control" asp-for="ProizvodId" readonly />
+    </div>
     <div class="mb-3">
         <label for="" class="form-label">Ime proizvoda</label>
         <input type="text" class="form-control" asp-for="ImeProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Kategorija Proizvoda</label>
-        <input type="text" class="form-control" asp-for="KategorijaProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+  <div class="mb-3">
+        <label asp-for="KategorijaId">Kategorija: </label>
+        @if (Model.Kategorije != null)
+        {
+            <select asp-for="KategorijaId" asp-items="@(new SelectList(Model.Kategorije, "KategorijaId", "NazivKategorije", Model.NazivKategorije))"><option value="">--Odaberi kategoriju--</option></select>
+        }
+        else
+        {
+            <p>Nema Kategorija</p>
+        }
     </div>
+
+
     <div class="mb-3">
         <label for="" class="form-label">Opis proizvoda</label>
-        <input type="number" class="form-control" asp-for="OpisProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="OpisProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Direktor</label>
@@ -37,5 +50,6 @@
         <input type="date" class="form-control" asp-for="DatumDolaskaWeb">
     </div>
 
-    <button type="submit" class="btn btn-primary">Spremi</button>
+    <button type="submit" class="btn btn-success">Spremi</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete">Izbriši</button>
 </form>

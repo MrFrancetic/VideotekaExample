@@ -19,46 +19,60 @@ namespace Videoteka.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var proizvodi=await proDbContext.Proizvodi.ToListAsync();
-            return View();
+            var proizvod = await proDbContext.Proizvodi.ToListAsync();
+            return View(proizvod);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
-        }
+           
+                if (proDbContext == null)
+                {
+                    return NotFound();
+                }
 
+                var addProizvodViewModel = new AddProizvodViewModel();
+                addProizvodViewModel.Kategorije = proDbContext.Kategorija.ToList();
+                return View(addProizvodViewModel);
+
+        }
+ 
         [HttpPost]
         public async Task<IActionResult> Add(AddProizvodViewModel addProizvodRequest)
         {
-            var proizvod = new Proizvod()
-            {
-                ImeProizvoda = addProizvodRequest.ImeProizvoda,
-                KategorijaProizvoda = addProizvodRequest.KategorijaProizvoda,
-                OpisProizvoda = addProizvodRequest.OpisProizvoda,
-                Direktor = addProizvodRequest.Direktor,
-                Glumci = addProizvodRequest.Glumci,
-                KodProizvoda = addProizvodRequest.KodProizvoda,
-                DatumIzlaska = addProizvodRequest.DatumIzlaska,
-                DatumDolaskaWeb = addProizvodRequest.DatumDolaskaWeb
-            };
-            await proDbContext.Proizvodi.AddAsync(proizvod);
-            await proDbContext.SaveChangesAsync();
-            int newProizvodId = proizvod.ProizvodId;
-            return RedirectToAction("Index");
+
+            var kategorija = await proDbContext.Kategorija.FirstOrDefaultAsync(k => k.KategorijaId == addProizvodRequest.KategorijaId);
+                var proizvod = new Proizvod()
+                {
+                    ImeProizvoda = addProizvodRequest.ImeProizvoda,
+                    KategorijaId = kategorija.KategorijaId,
+                    OpisProizvoda = addProizvodRequest.OpisProizvoda,
+                    Direktor = addProizvodRequest.Direktor,
+                    Glumci = addProizvodRequest.Glumci,
+                    KodProizvoda = addProizvodRequest.KodProizvoda,
+                    DatumIzlaska = addProizvodRequest.DatumIzlaska,
+                    DatumDolaskaWeb = addProizvodRequest.DatumDolaskaWeb
+                };
+                await proDbContext.Proizvodi.AddAsync(proizvod);
+                await proDbContext.SaveChangesAsync();
+                int newProizvodId = proizvod.ProizvodId;
+                return RedirectToAction("Index");
+
         }
+
         [HttpGet]
         public async Task<IActionResult> View(int id)
         {
-            var proizvod=await proDbContext.Proizvodi.FirstOrDefaultAsync(x=>x.ProizvodId==id);
+            var proizvod=await proDbContext.Proizvodi.Include(x=>x.Kategorija).FirstOrDefaultAsync(x=>x.ProizvodId==id);
             if(proizvod != null)
             {
                 var ViewPro = new AzurirajProizvodViewModel()
                 {
                     ProizvodId = proizvod.ProizvodId,
                     ImeProizvoda = proizvod.ImeProizvoda,
-                    KategorijaProizvoda = proizvod.KategorijaProizvoda,
+                    KategorijaId= proizvod.KategorijaId,
+                    NazivKategorije=proizvod.Kategorija.NazivKategorije,
                     OpisProizvoda = proizvod.OpisProizvoda,
                     Direktor = proizvod.Direktor,
                     Glumci = proizvod.Glumci,
@@ -78,7 +92,8 @@ namespace Videoteka.Controllers
             {
                 proizvod.ProizvodId=azPro.ProizvodId;
                 proizvod.ImeProizvoda=azPro.ImeProizvoda;
-                proizvod.KategorijaProizvoda = azPro.KategorijaProizvoda;
+                proizvod.KategorijaId = azPro.KategorijaId;
+                var kategorija = await proDbContext.Kategorija.FindAsync(azPro.KategorijaId);
                 proizvod.OpisProizvoda = azPro.OpisProizvoda;
                 proizvod.Direktor=azPro.Direktor;
                 proizvod.Glumci=azPro.Glumci;

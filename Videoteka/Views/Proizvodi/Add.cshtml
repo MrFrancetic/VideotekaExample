@@ -1,4 +1,5 @@
 ﻿@model AddProizvodViewModel
+
 @{
 }
 <form method="post" action="Add">
@@ -8,12 +9,12 @@
         <input type="text" class="form-control" asp-for="ImeProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Kategorija Proizvoda</label>
-        <input type="text" class="form-control" asp-for="KategorijaProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+        <label asp-for="KategorijaId">Kategorija: </label>
+        <select asp-for="KategorijaId" asp-items="@(new SelectList(Model.Kategorije, "KategorijaId", "NazivKategorije"))"><option value="">--Odaberi kategoriju--</option></select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Opis proizvoda</label>
-        <input type="number" class="form-control" asp-for="OpisProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
+        <input type="text" class="form-control" asp-for="OpisProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Direktor</label>
