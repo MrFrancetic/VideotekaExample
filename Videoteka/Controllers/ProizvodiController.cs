@@ -64,15 +64,15 @@ namespace Videoteka.Controllers
         [HttpGet]
         public async Task<IActionResult> View(int id)
         {
-            var proizvod=await proDbContext.Proizvodi.Include(x=>x.Kategorija).FirstOrDefaultAsync(x=>x.ProizvodId==id);
+            var proizvod = await proDbContext.Proizvodi.FindAsync(id);
             if(proizvod != null)
             {
                 var ViewPro = new AzurirajProizvodViewModel()
                 {
                     ProizvodId = proizvod.ProizvodId,
                     ImeProizvoda = proizvod.ImeProizvoda,
-                    KategorijaId= proizvod.KategorijaId,
-                    NazivKategorije=proizvod.Kategorija.NazivKategorije,
+                    KategorijaId = proizvod.KategorijaId,
+                    Kategorije = await proDbContext.Kategorija.ToListAsync(),
                     OpisProizvoda = proizvod.OpisProizvoda,
                     Direktor = proizvod.Direktor,
                     Glumci = proizvod.Glumci,
@@ -88,12 +88,11 @@ namespace Videoteka.Controllers
         public async Task<IActionResult>View(AzurirajProizvodViewModel azPro)
         {
             var proizvod = await proDbContext.Proizvodi.FindAsync(azPro.ProizvodId);
-            if(proizvod !=null)
+            if (proizvod !=null)
             {
                 proizvod.ProizvodId=azPro.ProizvodId;
                 proizvod.ImeProizvoda=azPro.ImeProizvoda;
                 proizvod.KategorijaId = azPro.KategorijaId;
-                var kategorija = await proDbContext.Kategorija.FindAsync(azPro.KategorijaId);
                 proizvod.OpisProizvoda = azPro.OpisProizvoda;
                 proizvod.Direktor=azPro.Direktor;
                 proizvod.Glumci=azPro.Glumci;

@@ -1,4 +1,5 @@
 ﻿@model AzurirajProizvodViewModel
+
 @{
 }
 <form method="post" action="View">
@@ -11,17 +12,13 @@
         <label for="" class="form-label">Ime proizvoda</label>
         <input type="text" class="form-control" asp-for="ImeProizvoda" required oninvalid="this.setCustomValidity('Ne može biti prazno. Ispunite polje.')" onchange="this.setCustomValidity('')">
     </div>
-  <div class="mb-3">
-        <label asp-for="KategorijaId">Kategorija: </label>
-        @if (Model.Kategorije != null)
-        {
-            <select asp-for="KategorijaId" asp-items="@(new SelectList(Model.Kategorije, "KategorijaId", "NazivKategorije", Model.NazivKategorije))"><option value="">--Odaberi kategoriju--</option></select>
-        }
-        else
-        {
-            <p>Nema Kategorija</p>
-        }
+
+    <div class="mb-3">
+        <label for="">Kategorija: </label>
+        <select asp-for="KategorijaId" asp-items="@(Model.Kategorije != null ? new SelectList(Model.Kategorije, "KategorijaId", "NazivKategorije") : Enumerable.Empty<SelectListItem>())"><option value="">--Odaberi kategoriju--</option>
+        </select>
     </div>
+
 
 
     <div class="mb-3">
